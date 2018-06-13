@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue实例</title>
+
+</head>
+
+<body>
+    <div id="first">
+        <h3>{{ message }}</h3>
+        <h4>{{ age }}</h4>
+
+        <!-- 绑定事件/监听事件 -->
+        <input type="button" v-on:click="add(1)" value="add" />
+        <input type="button" @click.once="subtract(1)"  value="subtract" />
+
+        <input type="button" value="dblAdd" @dblclick="add(2)">
+        <input type="button" value="dblSubtract" v-on:dblclick="subtract(2)">
+
+        <!-- 获取鼠标位置/事件修饰符 -->
+        <div id="showXY" @mousemove="showXY">
+            {{x}},{{y}} - <span id="stopMoving" @mousemove="stopMoving">stop moving</span>
+            - <span id="stopMovingForStop" @mousemove.stop="">stop moving for stop</span>
+        </div>
+        <!-- 阻止默认事件触发 -->
+        <a href="http://www.baidu.com" @click.prevent="hello">baidu</a>
+
+        <h2>键盘事件</h2>
+        <label for="name">姓名：</label>
+        <input type="text">
+        <label for="sex">性别：</label>
+        <input type="text">
+
+    </div>
+
+    <script src="vue_demo.js"></script>
+</body>
+</html>
