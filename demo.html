@@ -31,12 +31,26 @@
         <!-- 阻止默认事件触发 -->
         <a href="http://www.baidu.com" @click.prevent="hello">baidu</a>
 
-        <h2>键盘事件</h2>
+        <h2>键盘事件/键盘组合事件</h2>
         <label for="name">姓名：</label>
-        <input type="text">
+        <input type="text" @keyup.enter.ctrl="showName">
         <label for="sex">性别：</label>
-        <input type="text">
+        <input type="text" @keyup="showSex">
 
+        <h3>双向绑定 input/ select/ textarea </h3>
+        <label for="name">姓名：</label>
+        <input ref="name" type="text" @keyup.enter.ctrl="showName">
+        <span>{{ name }}</span>
+        <label for="sex">性别：</label>
+        <input ref="sex" type="text" @keyup="showSex">
+        <span>{{ sex }}</span>
+        <label for="addres">地址：</label>
+        <input type="text" v-model="addres" ref="addres">
+        <span>{{ addres }}</span>
+
+        <h3>计算属性 computed</h3>
+        <p>获取message: {{ message }}</p>
+        <p>增加message：{{ addMessage }}</p>
     </div>
 
     <script src="vue_demo.js"></script>
